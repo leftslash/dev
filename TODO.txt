@@ -1,0 +1,3 @@
+Add clang compiler
+Add reasonable bash profile, aliases, etc.
+Add docker start in main Makefile
