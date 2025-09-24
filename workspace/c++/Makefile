@@ -9,10 +9,12 @@ src 						!= find . -name '*.cpp'
 debug						:= -ggdb
 release					:= -O2 -DNDEBUG
 warnings				:= -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror
+includes				:= -I./src
+std							:= -std=c++23
 
 default:
 	@test -d $(out) || mkdir $(out)
-	g++ -o $(out)/$(bin) $(debug) $(warnings) $(src)
+	g++ $(std) -o $(out)/$(bin) $(includes) $(debug) $(warnings) $(src)
 
 clean:
 	rm -rf $(out)
