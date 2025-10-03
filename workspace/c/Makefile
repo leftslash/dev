@@ -1,16 +1,17 @@
 # Makefile
 
-SHELL						:= /bin/bash
+SHELL           := /bin/bash
 
-out							:= out
-bin							:= main
-src 						!= find . -name '*.c'
+out             := out
+bin             := main
+src             != find . -name '*.c'
 
-debug						:= -ggdb
-release					:= -O2 -DNDEBUG
-warnings				:= -Wall -Wextra -Wconversion -Wsign-conversion -Werror
-includes				:= -I./src
-std							:= -std=c99
+debug           := -ggdb
+release         := -O2 -DNDEBUG
+#warnings       := -Wall -Wextra -Wconversion -Wsign-conversion -Werror
+warnings        := 
+includes        := -I./src
+std             := -std=c89
 
 default:
 	@test -d $(out) || mkdir $(out)

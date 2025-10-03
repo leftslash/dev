@@ -1,13 +1,13 @@
 # Makefile
 
-SHELL								:= /bin/bash
+SHELL               := /bin/bash
 
-image_name					:= test
-image_version				:= latest
-container_tag				:= test
+image_name          := test
+image_version       := latest
+container_tag       := test
 
-host_dir   					:= ./workspace
-container_dir   		:= /home/todd/workspace
+host_dir            := ./workspace
+container_dir       := /home/todd/workspace
 
 
 build: Dockerfile
@@ -16,7 +16,7 @@ build: Dockerfile
 run: Dockerfile
 	docker run -it --name $(container_tag) --volume=$(host_dir):$(container_dir) $(image_name):$(image_version)
 
-list:
+list:	
 	docker images
 	@echo
 	docker ps -a
