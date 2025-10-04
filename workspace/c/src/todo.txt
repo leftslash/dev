@@ -2,6 +2,8 @@ create generuc main to invoke whichever needs to be invoked.
 test rand.c
 where do the intermediate .o files go?
   is this some makefile magic?
+read up on makefiles
+  and examples
 code & understand
   binary search
   shell sort

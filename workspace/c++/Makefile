@@ -8,7 +8,7 @@ src 						!= find . -name '*.cpp'
 
 debug						:= -ggdb
 release					:= -O2 -DNDEBUG
-warnings				:= -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror
+warnings				:= -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -pedantic
 includes				:= -I./src
 std							:= -std=c++23
 

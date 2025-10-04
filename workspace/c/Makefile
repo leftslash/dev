@@ -8,7 +8,7 @@ src             != find . -name '*.c'
 
 debug           := -ggdb
 release         := -O2 -DNDEBUG
-#warnings       := -Wall -Wextra -Wconversion -Wsign-conversion -Werror
+#warnings       := -Wall -Wextra -Wconversion -Wsign-conversion -Werror -pedantic
 warnings        := 
 includes        := -I./src
 std             := -std=c89
