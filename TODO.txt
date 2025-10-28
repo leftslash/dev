@@ -1,3 +1,2 @@
-Add clang compiler
-Add docker start in main Makefile
-Add man-db package
+Add man-db package?
+Add linux-perf

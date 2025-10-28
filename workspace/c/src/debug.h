@@ -1,6 +1,10 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
+/* Example of  debug facility demonstrating the use of
+ * macros and preproceesor definitions
+ */
+
 #include <stdio.h>
 #include <stdarg.h>
 
