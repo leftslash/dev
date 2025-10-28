@@ -16,7 +16,10 @@ build: Dockerfile
 run: Dockerfile
 	docker run -it --name $(container_tag) --volume=$(host_dir):$(container_dir) $(image_name):$(image_version)
 
-list:	
+start: Dockerfile
+	docker start -ai $(container_tag)
+
+list:
 	docker images
 	@echo
 	docker ps -a
