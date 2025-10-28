@@ -4,8 +4,9 @@ SHELL						:= /bin/bash
 
 out							:= out
 bin							:= main
-src 						!= find . -name '*.cpp'
+src 						!= find src -name '*.cpp'
 
+std							:= -std=c++23
 debug						:= -ggdb
 release					:= -O2 -DNDEBUG
 warnings				:= -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -pedantic
