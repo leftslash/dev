@@ -19,13 +19,16 @@ RUN apt-get install -y file
 RUN apt-get install -y locales
 RUN apt-get install -y curl man-db man
 RUN apt-get install -y splint
+RUN apt-get install -y tcl
+RUN apt-get install -y tk
+RUN apt-get install -y binutils-x86-64-gnu
 RUN sed -i '/en_US.UTF-8/s/^#//' /etc/locale.gen && locale-gen
 RUN rm /etc/localtime
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 RUN useradd --create-home --shell /bin/bash ${USER} && \
-    mkdir /home/${USER}/workspace && chown ${USER} /home/${USER}/workspace
+    mkdir /home/${USER}/work && chown ${USER} /home/${USER}/work
 
 USER ${USER}
 

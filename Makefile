@@ -7,8 +7,8 @@ image_name          := test
 image_version       := latest
 container_tag       := test
 
-host_dir            := ./workspace
-container_dir       := /home/todd/workspace
+host_dir            := ./work
+container_dir       := /home/todd/work
 
 
 build: $(dockerfile)
