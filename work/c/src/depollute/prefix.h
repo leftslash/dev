@@ -19,10 +19,10 @@ void long_ugly_name_free();
 
 #ifdef STR_PREFIX
 
-/* Style 1 of de-conflicting the namespace 
+/* Style 1 of de-conflicting the namespace
  * Each function is renamed as prefix_*
  * So, each function wraps the original, ugly named
- * function. There is overhead here in an extra 
+ * function. There is overhead here in an extra
  * layer of function calls.
  */
 
@@ -35,9 +35,10 @@ void JOIN(STR_PREFIX,free)()  { long_ugly_name_free(); }
 
 #ifdef OBJ_PREFIX
 
-/* Style 2 of de-conflicting the namespace 
+/* Style 2 of de-conflicting the namespace
  * Each function is a member of a struct prefix_t
- * So, each funcgtion is just a lookup in the struct.
+ * So, each function is just a lookup in the struct.
+ * Need to see if compiler optimizes this lookup away.
  */
 
 struct JOIN(OBJ_PREFIX,t) {

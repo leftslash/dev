@@ -1,18 +1,24 @@
 ; Build using these commands
 ;
-;   nasm -f elf64 -g -f dwarf hello.asm
-;   ld -o hello hello.o
+;   nasm -f elf64 -g -F dwarf main.asm
+;   ld -o main main.o
+;
+;   yasm -f elf64 -g dwarf2 main.asm
+;   ld -g -o main main.o
 
-SECTION .data
+section .data
+
   msg:  db  "hello, world",10
   len:  equ $-msg
 
-SECTION .bss
+section .bss
 
-SECTION .text
+section .text
+
   global _start
 
 _start:
+
   mov rbp,rsp       ; for debugging
   nop               ; keep gdb happy
 
@@ -25,3 +31,5 @@ _start:
   mov rax,60        ; 60 = syscall exit
   mov rdi,0         ; 0 = success
   syscall           ; system call
+
+; vim: ft=nasm

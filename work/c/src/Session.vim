@@ -1,17 +1,18 @@
 let SessionLoad = 1
 if &cp | set nocp | endif
+nmap <D-v> "*P
+vmap <D-v> "-d"*P
+vmap <D-c> "*y
+vmap <D-x> "*d
 let s:cpo_save=&cpo
 set cpo&vim
-map! <D-v> *
 xmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-xnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
+nnoremap <SNR>62_: :=v:count ? v:count : ''
 vmap <BS> "-d
-vmap <D-x> "*d
-vmap <D-c> "*y
-vmap <D-v> "-d"*P
-nmap <D-v> "*P
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
+xnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
+map! <D-v> *
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set autowrite
@@ -22,22 +23,24 @@ set exrc
 set fileencodings=ucs-bom,utf-8,default,latin1
 set helplang=en
 set laststatus=2
+set ruler
 set runtimepath=~/.vim,~/.vim/plugged/vim-airline,~/.vim/plugged/vim-fugitive,~/.vim/plugged/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim91,/usr/share/vim/vimfiles/after,~/.vim/after
 set shell=bash
 set shellcmdflag=-ic
 set shiftwidth=2
 set splitbelow
 set splitright
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set noswapfile
 set tabstop=2
 set ttimeoutlen=50
-set window=0
+set window=1
 set nowritebackup
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/stuff/work/dev/workspace/c/src
+cd /stuff/work/dev/work/c/src
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -47,8 +50,8 @@ else
   set shortmess=aoO
 endif
 badd +1 prefix_main.c
-badd +0 prefix.h
-badd +0 prefix.c
+badd +1 prefix.h
+badd +1 prefix.c
 argglobal
 %argdel
 $argadd prefix_main.c
@@ -74,12 +77,15 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 63 + 95) / 191)
-exe 'vert 2resize ' . ((&columns * 63 + 95) / 191)
-exe 'vert 3resize ' . ((&columns * 63 + 95) / 191)
+exe 'vert 1resize ' . ((&columns * 79 + 120) / 240)
+exe 'vert 2resize ' . ((&columns * 80 + 120) / 240)
+exe 'vert 3resize ' . ((&columns * 79 + 120) / 240)
 argglobal
+setlocal keymap=
+setlocal noarabic
 setlocal noautoindent
 setlocal backupcopy=
+setlocal balloonexpr=
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
@@ -111,11 +117,13 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
+setlocal eventignorewin=
 setlocal expandtab
 if &filetype != 'c'
 setlocal filetype=c
 endif
 setlocal fillchars=
+setlocal findfunc=
 setlocal fixendofline
 setlocal foldcolumn=0
 setlocal foldenable
@@ -163,6 +171,8 @@ setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
@@ -197,6 +207,8 @@ setlocal thesaurus=
 setlocal thesaurusfunc=
 setlocal noundofile
 setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
 setlocal virtualedit=
 setlocal wincolor=
 setlocal nowinfixbuf
@@ -206,7 +218,7 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 13 - ((12 * winheight(0) + 18) / 37)
+let s:l = 13 - ((12 * winheight(0) + 46) / 93)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -216,8 +228,11 @@ wincmd w
 argglobal
 2argu
 balt prefix_main.c
+setlocal keymap=
+setlocal noarabic
 setlocal noautoindent
 setlocal backupcopy=
+setlocal balloonexpr=
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
@@ -249,11 +264,13 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
+setlocal eventignorewin=
 setlocal expandtab
 if &filetype != 'cpp'
 setlocal filetype=cpp
 endif
 setlocal fillchars=
+setlocal findfunc=
 setlocal fixendofline
 setlocal foldcolumn=0
 setlocal foldenable
@@ -301,6 +318,8 @@ setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
@@ -335,6 +354,8 @@ setlocal thesaurus=
 setlocal thesaurusfunc=
 setlocal noundofile
 setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
 setlocal virtualedit=
 setlocal wincolor=
 setlocal nowinfixbuf
@@ -344,18 +365,21 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 21 - ((20 * winheight(0) + 18) / 37)
+let s:l = 21 - ((20 * winheight(0) + 46) / 93)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 21
-normal! 06|
+normal! 0
 wincmd w
 argglobal
 3argu
 balt prefix_main.c
+setlocal keymap=
+setlocal noarabic
 setlocal noautoindent
 setlocal backupcopy=
+setlocal balloonexpr=
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
@@ -387,11 +411,13 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
+setlocal eventignorewin=
 setlocal expandtab
 if &filetype != 'c'
 setlocal filetype=c
 endif
 setlocal fillchars=
+setlocal findfunc=
 setlocal fixendofline
 setlocal foldcolumn=0
 setlocal foldenable
@@ -439,6 +465,8 @@ setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
@@ -473,6 +501,8 @@ setlocal thesaurus=
 setlocal thesaurusfunc=
 setlocal noundofile
 setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
 setlocal virtualedit=
 setlocal wincolor=
 setlocal nowinfixbuf
@@ -482,17 +512,17 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 7 - ((6 * winheight(0) + 18) / 37)
+let s:l = 7 - ((6 * winheight(0) + 46) / 93)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 7
-normal! 03|
+normal! 0
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 63 + 95) / 191)
-exe 'vert 2resize ' . ((&columns * 63 + 95) / 191)
-exe 'vert 3resize ' . ((&columns * 63 + 95) / 191)
+exe 'vert 1resize ' . ((&columns * 79 + 120) / 240)
+exe 'vert 2resize ' . ((&columns * 80 + 120) / 240)
+exe 'vert 3resize ' . ((&columns * 79 + 120) / 240)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf

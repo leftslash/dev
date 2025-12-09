@@ -1,2 +1,23 @@
 Add man-db package?
 Add linux-perf
+
+Other developer packages to consider:
+
+tmux git file tree vim
+lftp
+rsync
+apt-file
+fastfetch
+htop
+make
+manpages-dev
+universal-ctags
+unzip
+xxd
+hexcurse
+tweak
+shed
+dhex
+nasm
+binutils
+gdb
