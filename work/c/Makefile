@@ -6,10 +6,9 @@ out             := out
 bin             := main
 src             != find . -name '*.c'
 
-debug           := -ggdb
+debug           := -ggdb 
 release         := -O2 -DNDEBUG
-#warnings       := -Wall -Wextra -Wconversion -Wsign-conversion -Werror -pedantic
-warnings        := 
+warnings        := -Wall -Wextra -Wconversion -Wsign-conversion -Werror -pedantic
 includes        := -I./src
 std             := -std=c89
 
